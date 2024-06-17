@@ -36,4 +36,4 @@ jobs:
 
     - name: Ejecutar Pruebas Funcionales
       run: |
-        python Code/Web/GestionDeProyectos/manage.py test apps.core.tests.tests_functional.PruebasFuncionales
+        python Code/Web/GestionDeProyectos/manage.py test
