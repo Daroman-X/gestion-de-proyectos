@@ -1,4 +1,4 @@
-name: APP CORE = Pruebas Unitarias - Funcionales
+name: Pruebas Unitarias - Funcionales
 
 on:
   push:
