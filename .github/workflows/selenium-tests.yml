@@ -27,8 +27,13 @@ jobs:
         pip install -r requirements.txt  # Ajusta según tus necesidades
 
     - name: Cambiar al Directorio del Proyecto
-      run: cd Code/Web/GestionDeProyectos  # Ajusta la ruta según la estructura de tu repositorio
+      run: cd gesti-n-de-proyectos  # Ajusta la ruta según la estructura de tu repositorio
+
+    - name: Verificar Contenido del Directorio
+      run: |
+        ls -la  # Esto es para verificar que estás en el directorio correcto
+        dir    # Comando equivalente en Windows
 
     - name: Ejecutar Pruebas Funcionales
       run: |
-        python manage.py test apps.core.tests.tests_functional.PruebasFuncionales
+        python gesti-n-de-proyectos/manage.py test apps.core.tests.tests_functional.PruebasFuncionales
