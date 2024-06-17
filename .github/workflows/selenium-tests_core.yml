@@ -36,3 +36,6 @@ jobs:
       run: |
         cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_functional
+
+
+    
