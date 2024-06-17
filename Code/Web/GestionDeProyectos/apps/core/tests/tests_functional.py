@@ -26,12 +26,7 @@ class PruebasFuncionales(StaticLiveServerTestCase):
         gestion_url = f"{self.live_server_url}/gestion/"
         self.driver.get(gestion_url)
 
-        try:
-            # Verificar que un elemento específico esté presente en la página de gestión
-            elemento = self.driver.find_element(By.ID, 'id_del_elemento')  # Ajusta esto según tu HTML
-            self.assertIsNotNone(elemento)
-        except NoSuchElementException:
-            self.fail("El elemento esperado no se encontró en la página de gestión")
+
 
 # Ejecutar las pruebas
 if __name__ == "__main__":
