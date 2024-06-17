@@ -27,7 +27,10 @@ jobs:
         pip install -r requirements.txt
 
     - name: Cambiar al Directorio del Proyecto
-      run: cd Code\Web\GestionDeProyectos  # Ajusta la ruta según tu estructura
+      run: 
+        ls
+        cd Code\Web\GestionDeProyectos
+        ls
 
     - name: Ejecutar Pruebas Funcionales
       run: |
