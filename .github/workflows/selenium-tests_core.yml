@@ -24,7 +24,7 @@ jobs:
     - name: Instalar Dependencias
       run: |
         python -m pip install --upgrade pip
-        cd Code\Web\GestionDeProyectos
+        cd Code\Web\Scripts
         pip install -r requirements.txt
 
     - name: Ejecucion de Pruebas Unitarias
