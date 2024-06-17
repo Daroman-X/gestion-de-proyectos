@@ -15,7 +15,7 @@ class TestsPath(SimpleTestCase):
         print("Prueba de Inicio")
         try:
             self.assertEqual(respuesta.status_code,200)
-            print("[Correcta]: Página encontrada, código:", respuesta.status_code)
+            print("[Correcta]: Pagina encontrada, codigo:", respuesta.status_code)
         except AssertionError as ae:
             print(f"La prueba a fallado {ae}")
         except Exception as e:
