@@ -27,9 +27,12 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
+      - name: Navigate to project directory
+        run: cd R:/Proyectos/Gestion\ Software/Code/Web/Proyecto\ GS
+
       - name: Run tests
         run: |
-          source venv/bin/activate
-          python manage.py test
+          source ../venv/bin/activate
+          python manage.py test apps.core.tests.tests_functional.PruebasFuncionales
         env:
-          DISPLAY: :99  # Virtual display for headless Chrome
+          DISPLAY: :99
