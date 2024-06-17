@@ -31,7 +31,15 @@ jobs:
         cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_unitario
 
+    - name: Verificar Ubicación
+      run: |
+        dir
+
     - name: Ejecucion de Pruebas Funcionales
       run: |
         cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_functional
+
+    - name: Verificar Ubicación Final
+      run: |
+        dir
