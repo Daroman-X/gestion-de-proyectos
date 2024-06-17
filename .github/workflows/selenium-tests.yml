@@ -27,7 +27,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Cambiar al Directorio del Proyecto
-      run: 
+      run: |
         cd Code\Web\GestionDeProyectos
         ls
 
