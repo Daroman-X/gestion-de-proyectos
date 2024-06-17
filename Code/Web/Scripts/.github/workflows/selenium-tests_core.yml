@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: DaromanX/gestion-de-proyectos
-        path: Code\Web\Scripts
+        path: Code/Web/Scripts
 
     - name: Configurar Python
       uses: actions/setup-python@v2
@@ -29,12 +29,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Cambiar al Directorio del Proyecto
+      run: cd Code\Web\GestionDeProyectos
+
     - name: Ejecucion de Pruebas Unitarias
-      run: |
-        cd Code\Web\Scripts\Code\Web\GestionDeProyectos  # Ajusta la ruta correctamente
-        python manage.py test apps.core.tests.tests_unitario
+      run: python manage.py test apps.core.tests.tests_unitario
 
     - name: Ejecucion de Pruebas Funcionales
-      run: |
-        cd Code\Web\Scripts\Code\Web\GestionDeProyectos  # Ajusta la ruta correctamente
-        python manage.py test apps.core.tests.tests_functional
+      run: python manage.py test apps.core.tests.tests_functional
