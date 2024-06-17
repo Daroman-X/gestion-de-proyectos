@@ -28,7 +28,6 @@ jobs:
 
     - name: Cambiar al Directorio del Proyecto
       run: 
-        ls
         cd Code\Web\GestionDeProyectos
         ls
 
