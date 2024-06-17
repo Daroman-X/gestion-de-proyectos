@@ -26,6 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         cd Code\Web\Scripts
         pip install -r requirements.txt
+        pip install coverage
 
     - name: Ejecutar Pruebas Unitarias con Cobertura
       run: |
@@ -33,6 +34,7 @@ jobs:
         coverage run --source='.' manage.py test apps.core.tests.tests_unitario
         coverage report
         coverage html
+        coverage xml
 
     - name: Ejecutar Pruebas Funcionales con Cobertura
       run: |
@@ -40,8 +42,17 @@ jobs:
         coverage run --source='.' manage.py test apps.core.tests.tests_functional
         coverage report
         coverage html
+        coverage xml
+
+    - name: Verificar Archivos de Cobertura
+      run: |
+        cd Code\Web\GestionDeProyectos
+        dir
 
     - name: Subir Reporte de Cobertura a Codecov
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        files: Code\Web\GestionDeProyectos\coverage.xml
+        flags: unittests
+        name: codecov-coverage
