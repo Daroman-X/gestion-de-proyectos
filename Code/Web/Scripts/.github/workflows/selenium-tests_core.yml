@@ -16,7 +16,7 @@ jobs:
     - name: Checkout del Código
       uses: actions/checkout@v2
       with:
-        repository: nombreusuario/turepositorio  # Cambia por tu nombre de usuario y nombre de repositorio
+        repository: daromanx/gestion-de-proyectos
 
     - name: Configurar Python
       uses: actions/setup-python@v2
