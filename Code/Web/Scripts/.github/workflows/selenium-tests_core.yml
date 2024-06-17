@@ -1,4 +1,4 @@
-name: Pruebas Unitarias - Funcionales
+name: Pruebas Selenium - Core
 
 on:
   push:
@@ -16,8 +16,7 @@ jobs:
     - name: Checkout del Código
       uses: actions/checkout@v2
       with:
-        repository: DaromanX/gestion-de-proyectos
-        path: Code/Web/Scripts
+        repository: nombreusuario/turepositorio  # Cambia por tu nombre de usuario y nombre de repositorio
 
     - name: Configurar Python
       uses: actions/setup-python@v2
@@ -30,10 +29,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Cambiar al Directorio del Proyecto
-      run: cd Code\Web\GestionDeProyectos
+      run: cd Code\Web\GestionDeProyectos  # Ajusta la ruta según tu estructura
 
-    - name: Ejecucion de Pruebas Unitarias
-      run: python manage.py test apps.core.tests.tests_unitario
-
-    - name: Ejecucion de Pruebas Funcionales
-      run: python manage.py test apps.core.tests.tests_functional
+    - name: Ejecutar Pruebas Selenium
+      run: |
+        python manage.py test apps.core.tests.selenium_tests  # Ajusta según tus pruebas de Selenium
