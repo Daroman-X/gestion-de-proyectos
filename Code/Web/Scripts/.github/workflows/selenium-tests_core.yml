@@ -29,8 +29,8 @@ jobs:
         pip install -r requirements.txt
 
     - name: Cambiar al Directorio del Proyecto
-      run: cd Code\Web\GestionDeProyectos  # Ajusta la ruta según tu estructura
+      run: cd Code\Web\GestionDeProyectos
 
     - name: Ejecutar Pruebas Selenium
       run: |
-        python manage.py test apps.core.tests.selenium_tests  # Ajusta según tus pruebas de Selenium
+        python manage.py test apps.core.tests.selenium_tests
