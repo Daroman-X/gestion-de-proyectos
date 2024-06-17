@@ -1,38 +1,36 @@
-name: Selenium Tests
+name: Ejecutar Pruebas
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Reemplaza con tu rama principal
+  pull_request:
+    branches:
+      - main  # Reemplaza con tu rama principal
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
-    services:
-      selenium:
-        image: selenium/standalone-chrome:latest
-        ports:
-          - 4444:4444
+    runs-on: windows-latest  # Utilizamos Windows para este ejemplo
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout del Código
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Configurar Python y Entorno Virtual
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Reemplaza con la versión de Python que estés utilizando
 
-      - name: Install dependencies
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+    - name: Crear y Activar Entorno Virtual
+      run: |
+        python -m venv venv
+        .\venv\Scripts\activate
 
-      - name: Navigate to project directory
-        run: cd "Code/Web/GestionDeProyectos"
+    - name: Instalar Dependencias
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt  # Ajusta según tus necesidades
 
-      - name: Run tests
-        run: |
-          source ../venv/bin/activate
-          python manage.py test apps.core.tests.tests_functional.PruebasFuncionales
-        env:
-          DISPLAY: :99
+    - name: Ejecutar Pruebas
+      run: |
+        python manage.py test apps.core.tests.tests_functional.PruebasFuncionales
