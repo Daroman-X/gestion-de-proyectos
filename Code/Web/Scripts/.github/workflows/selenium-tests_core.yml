@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: DaromanX/gestion-de-proyectos
-        path: Code/Web/Scripts
+        path: Code\Web\Scripts
 
     - name: Configurar Python
       uses: actions/setup-python@v2
@@ -31,10 +31,10 @@ jobs:
 
     - name: Ejecucion de Pruebas Unitarias
       run: |
-        cd Code\Web\GestionDeProyectos
+        cd Code\Web\Scripts\Code\Web\GestionDeProyectos  # Ajusta la ruta correctamente
         python manage.py test apps.core.tests.tests_unitario
 
     - name: Ejecucion de Pruebas Funcionales
       run: |
-        cd Code\Web\GestionDeProyectos
+        cd Code\Web\Scripts\Code\Web\GestionDeProyectos  # Ajusta la ruta correctamente
         python manage.py test apps.core.tests.tests_functional
