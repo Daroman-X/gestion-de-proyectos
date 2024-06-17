@@ -26,16 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Cambiar al Directorio del Proyecto
-      run: |
-        cd Code\Web\GestionDeProyectos
-        ls
-
     - name: Ejecutar Pruebas Funcionales
       run: |
+        cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_functional
-
-    - name: Verificar Ubicación
-      run: |
-        ls
-        dir
