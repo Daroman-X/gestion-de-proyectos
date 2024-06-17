@@ -1,36 +1,34 @@
-name: Ejecutar Pruebas
+name: Ejecutar Pruebas Funcionales
 
 on:
   push:
     branches:
-      - master  # Reemplaza con tu rama principal
+      - master  # Cambia según tu rama principal
   pull_request:
     branches:
-      - master  # Reemplaza con tu rama principal
+      - master  # Cambia según tu rama principal
 
 jobs:
   test:
-    runs-on: windows-latest  # Utilizamos Windows para este ejemplo
+    runs-on: windows-latest  # Usa el sistema operativo Windows
 
     steps:
     - name: Checkout del Código
       uses: actions/checkout@v2
 
-    - name: Configurar Python y Entorno Virtual
+    - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10'  # Reemplaza con la versión de Python que estés utilizando
-
-    - name: Crear y Activar Entorno Virtual
-      run: |
-        python -m venv venv
-        .\venv\Scripts\activate
+        python-version: '3.10'  # Ajusta a la versión de Python que estás usando
 
     - name: Instalar Dependencias
       run: |
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt  # Ajusta según tus necesidades
 
-    - name: Ejecutar Pruebas
+    - name: Cambiar al Directorio del Proyecto
+      run: cd Code/Web/GestionDeProyectos  # Ajusta la ruta según la estructura de tu repositorio
+
+    - name: Ejecutar Pruebas Funcionales
       run: |
         python manage.py test apps.core.tests.tests_functional.PruebasFuncionales
