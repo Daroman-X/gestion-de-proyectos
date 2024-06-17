@@ -28,7 +28,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Navigate to project directory
-        run: cd R:/Proyectos/Gestion\ Software/Code/Web/Proyecto\ GS
+        run: cd /Code/Web/Proyecto\ GS
 
       - name: Run tests
         run: |
