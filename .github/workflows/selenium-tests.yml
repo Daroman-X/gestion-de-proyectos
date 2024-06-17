@@ -19,7 +19,7 @@ jobs:
     - name: Configurar Python y Entorno Virtual
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # Reemplaza con la versión de Python que estés utilizando
+        python-version: '3.10'  # Reemplaza con la versión de Python que estés utilizando
 
     - name: Crear y Activar Entorno Virtual
       run: |
