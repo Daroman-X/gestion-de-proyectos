@@ -15,8 +15,6 @@ jobs:
     steps:
     - name: Checkout del Código
       uses: actions/checkout@v2
-      with:
-        repository: daromanx/gestion-de-proyectos
 
     - name: Configurar Python
       uses: actions/setup-python@v2
