@@ -26,8 +26,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Ejecutar Pruebas Funcionales
+    - name: Ejecucion de Pruebas Unitarias
       run: |
         cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_unitario
+
+    - name: Ejecucion de Pruebas Funcionales
+      run: |
+        cd Code\Web\GestionDeProyectos
         python manage.py test apps.core.tests.tests_functional
