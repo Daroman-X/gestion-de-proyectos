@@ -1,4 +1,4 @@
-name: Ejecutar Pruebas Funcionales
+name: Ejecutar Pruebas [App - Core]
 
 on:
   push:
