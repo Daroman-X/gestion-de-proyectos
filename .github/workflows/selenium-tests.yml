@@ -31,7 +31,7 @@ jobs:
 
     - name: Verificar Contenido del Directorio
       run: |
-        ls -la  # Esto es para verificar que estás en el directorio correcto
+        ls   # Esto es para verificar que estás en el directorio correcto
         dir    # Comando equivalente en Windows
 
     - name: Ejecutar Pruebas Funcionales
