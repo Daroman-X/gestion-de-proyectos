@@ -3,10 +3,10 @@ name: Ejecutar Pruebas
 on:
   push:
     branches:
-      - main  # Reemplaza con tu rama principal
+      - master  # Reemplaza con tu rama principal
   pull_request:
     branches:
-      - main  # Reemplaza con tu rama principal
+      - master  # Reemplaza con tu rama principal
 
 jobs:
   test:
