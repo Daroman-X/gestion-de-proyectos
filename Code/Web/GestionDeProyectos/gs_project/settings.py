@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.core.apps.CoreConfig'
+    'apps.core.apps.CoreConfig',
+    'crispy_forms',
+    "crispy_bootstrap5",
+    'apps.publicaciones.apps.PublicacionesConfig',
+    'apps.cuentas.apps.CuentasConfig',
 ]
 
 MIDDLEWARE = [
@@ -104,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -122,14 +126,25 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Additional locations of static files
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+AUTH_USER_MODEL="cuentas.UsuarioPersonalizado"
+LOGIN_REDIRECT_URL="publicacion:inicio"
+LOGOUT_REDIRECT_URL = 'core:inicio'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Si usas Bootstrap 5
+CRISPY_TEMPLATE_PACK = "bootstrap5"  # Si usas Bootstrap 5
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b7e3af56d9a669'
+EMAIL_HOST_PASSWORD = '907f40878ec494'
+EMAIL_PORT = '2525'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -1,0 +1,81 @@
+{% extends "base/body.html" %}
+{% block titulo %} Publicaciones {% endblock titulo %}
+
+{% block contenido %}
+<br>
+<center><h2>Publicaciones</h2></center>
+
+<!-- Tu contenido -->
+
+<a href="#" data-toggle="modal" data-target="#passwordChangeModal" id="change-password-link">Modal cambio de contraseña</a>
+
+<!-- Modal -->
+<div class="modal fade" id="passwordChangeModal" tabindex="-1" role="dialog" aria-labelledby="passwordChangeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordChangeModalLabel">Cambio de Contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="passwordChangeFormContainer">
+                    <!-- El formulario se cargará aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Cargar el formulario de cambio de contraseña en el modal al hacer clic en el enlace
+    document.getElementById('change-password-link').addEventListener('click', function() {
+        $('#passwordChangeFormContainer').load("{% url 'password_change' %} form");
+    });
+</script>
+<br>
+<div class="container mt-4">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{% url 'publicacion:crear' %}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Crear Nuevo
+        </a>
+    </div>
+
+    {% for publicacion in publicaciones %}
+        <div class="card mb-3 shadow-sm border-0">
+            <div class="card-header d-flex justify-content-between bg-primary text-white">
+                <span style="text-transform: uppercase;"><strong>{{ publicacion.autor }}</strong></span>
+                <span>{{ publicacion.fecha }}</span>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'publicacion:detalle' publicacion.id %}" class="text-decoration-none text-dark">{{ publicacion.titulo }}</a>
+                </h5>
+                {% with words=publicacion.texto|truncatewords_html:50 %}
+                    <p class="card-text">{{ words }}</p>
+                {% endwith %}
+            </div>
+
+            <div class="card-footer bg-light">
+                <h6 class="mb-3"><i class="fas fa-comments"></i> Comentarios</h6>
+                {% for comentario in publicacion.comentarios.all %}
+                    <div class="media mb-3 p-3 border rounded bg-white shadow-sm">
+                         <div class="media-body">
+                            <h6 class="mt-0 text-primary">{{ comentario.autor }}</h6>
+                            <p>{{ comentario }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+{% endblock contenido %}

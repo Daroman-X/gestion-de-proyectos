@@ -1,0 +1,31 @@
+{% extends "base/body.html" %}
+{% block titulo %} Detalle Publicaciones {% endblock titulo %}
+
+{% block contenido %}
+<br>
+<center><h2>Detalle de la publicacion </h2></center>
+<br>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 style="color: black;"><span>{{ publicacion_detalle.titulo }}</span></h3>
+                <div>
+                    <a href="{% url 'publicacion:inicio'  %}" class="btn btn-secondary btn-custom">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                    <a href="{% url 'publicacion:eliminar' publicacion_detalle.id %}" class="btn btn-danger btn-custom">
+                        <i class="fas fa-trash-alt"></i> Eliminar Publicación
+                    </a>
+                    <a href="{% url 'publicacion:editar' publicacion_detalle.id %}" class="btn btn-warning btn-custom">
+                        <i class="fas fa-edit"></i> Editar Publicación
+                    </a>
+                </div>
+            </div>
+            <p class="lead text-justify">{{ publicacion_detalle.texto }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

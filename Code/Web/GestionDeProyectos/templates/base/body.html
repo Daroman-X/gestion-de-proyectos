@@ -5,29 +5,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block titulo %}{% endblock titulo %} </title>
+    <title>{% block titulo %}{% endblock titulo %}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-
+    <script src="{% static 'js/iconos.js' %}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 
 </head>
 <body>
 
-    {% include "base/nav.html" %}
+    <div class="wrapper">
+        {% include "base/sidebar.html" %}
 
-    {% block contenido %}
-    
-    {% endblock contenido %}
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom navColor">
+                <!-- Button for sidebar toggle -->
+                <button class="btn" type="button" data-bs-theme="dark">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+            <main class="content px-3 py-2">
+               
 
-    {% include "base/footer.html" %}
+                {% if user.is_authenticated %}
+                <div class="alert alert-success" role="alert">
+                    <p><i class="fas fa-check-circle"></i> Bienvenido <strong>{{ user.username }}</strong></p>
+                </div>
+                {% else %}
+                <div class="alert alert-danger" role="alert">
+                    <p><i class="fas fa-exclamation-circle"></i> No estás logueado</p>
+
+                </div>
+                {% endif %}
+
+
+                <div class="container-fluid">
+                    {% block contenido %}
+                    {% endblock contenido %}
+                </div>
+            </main>
+          </div>
+
+    </div>
+
+  
 
 
     <!-- Bootstrap JS y dependencias -->
     <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    
+    <script src="{% static 'js/nav.js' %}"></script>
+
 </body>
 </html>

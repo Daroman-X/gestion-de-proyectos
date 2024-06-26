@@ -1,0 +1,28 @@
+{% extends "base/body.html" %}
+{% block titulo %} Eliminar Publicaciones {% endblock titulo %}
+
+{% block contenido %}
+<br>
+<center><h2>Eliminar la publicacion </h2></center>
+<br>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p class="confirmation-message">¿Estás seguro que deseas eliminar "<span>{{ publicacion.titulo }}</span>"?</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'publicacion:detalle' publicacion.id %}" class="btn btn-secondary btn-custom">
+                        <i class="fas fa-arrow-left"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-danger btn-custom">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

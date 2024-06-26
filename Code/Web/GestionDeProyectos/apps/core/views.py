@@ -31,3 +31,4 @@ Redirecciona a la pagina donde esta el tablero de quehaceres
 """
 class TableroView(TemplateView):
     template_name="core/tablero.html"
+
